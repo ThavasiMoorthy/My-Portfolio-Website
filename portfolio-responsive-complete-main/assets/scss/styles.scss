@@ -1,0 +1,170 @@
+/*===== GOOGLE FONTS =====*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/*===== VARIABLES CSS =====*/
+:root {
+    --header-height: 3rem;
+    --font-semi: 600;
+
+    /*===== Colors =====*/
+    --hue-color: 224;
+    --first-color: hsl(var(--hue-color), 89%, 60%);
+    --second-color: hsl(var(--hue-color), 56%, 12%);
+    --project-blue: #3498db;   /* Blue for ML Projects */
+    --project-purple: #9b59b6; /* Purple for DL Projects */
+    --project-yellow: #f39c12; /* Yellow for NLP Projects */
+    --project-red: #e74c3c;    /* Red for HTML Projects */
+    --project-green: #2ecc71;  /* Green for CSS Projects */
+    --project-orange: #f1c40f; /* Orange for Data Analytics */
+
+    /*===== Font and Typography =====*/
+    --body-font: 'Poppins', sans-serif;
+    --big-font-size: 2rem;
+    --normal-font-size: .938rem;
+    --smaller-font-size: .75rem;
+
+    /*===== Margins =====*/
+    --mb-2: 1rem;
+    --mb-4: 2rem;
+    --mb-5: 2.5rem;
+    --mb-6: 3rem;
+
+    /*===== z-index =====*/
+    --z-back: -10;
+    --z-fixed: 100;
+
+    @media screen and (min-width: 968px) {
+        --big-font-size: 3.5rem;
+        --normal-font-size: 1rem;
+        --smaller-font-size: .875rem;
+    }
+}
+
+/*===== BASE =====*/
+*, ::before, ::after {
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    margin: var(--header-height) 0 0 0;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    color: var(--second-color);
+}
+h1, h2, p {
+    margin: 0;
+}
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/*===== PROJECTS =====*/
+.work {
+    &__container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* Three columns for projects */
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+    &__img {
+        background-color: #fff;
+        border-radius: 8px;
+        padding: 2rem;
+        text-align: center;
+        box-shadow: 0px 4px 25px rgba(14, 36, 49, 0.15);
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        height: 300px; /* Extended square box size */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__img:hover {
+        background-color: var(--first-color);
+        transform: scale(1.05);
+    }
+    .work__project {
+        font-size: 1.25rem;
+        font-weight: var(--font-semi);
+        color: #fff;
+        line-height: 1.5;
+        text-transform: uppercase;
+    }
+
+    /* Project title colors */
+    .work__project.blue {
+        background-color: #3498db;  /* Blue for the first project */
+    }
+    .work__project.purple {
+        background-color: #b65959;  /* Purple for the second project */
+    }
+    .work__project.orange {
+        background-color: #f312c6;  /* Yellow for the third project */
+    }
+    .work__project.red {
+        background-color: #3ce775;   /* Red for the fourth project */
+    }
+    .work__project.green {
+        background-color: #2e80cc;   /* Green for the fifth project */
+    }
+
+    /* Optional hover effect for project title */
+    .work__img:hover .work__project {
+        color: #fff;
+    }
+}
+
+/*===== HEADER =====*/
+.section-title {
+    position: relative;
+    font-size: var(--big-font-size);
+    color: var(--first-color);
+    margin-top: var(--mb-4);
+    margin-bottom: var(--mb-4);
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: var(--font-semi);
+
+    &::after {
+        position: absolute;
+        content: '';
+        width: 64px;
+        height: 0.18rem;
+        left: 0;
+        right: 0;
+        margin: auto;
+        top: 2rem;
+        background-color: var(--first-color);
+    }
+}
+
+
+/* MEDIA QUERIES =====*/
+@media screen and (max-width: 576px) {
+    .work__container {
+        grid-template-columns: 1fr; /* Stack projects on small screens */
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .work__container {
+        grid-template-columns: repeat(2, 1fr); /* Two columns on medium screens */
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .work__container {
+        grid-template-columns: repeat(3, 1fr); /* Three columns on larger screens */
+    }
+}
